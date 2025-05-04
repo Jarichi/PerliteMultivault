@@ -1,0 +1,61 @@
+server {
+    listen 80;
+    server_name localhost;
+    root /var/www/perlite;
+    index index.php index.html index.htm;
+
+    access_log  /var/log/nginx/php-access.log;
+    error_log   /var/log/nginx/php-error.log;
+
+    #
+    # 1) Strip “vault/” off any PHP front‑controller call
+    #
+    location ~ ^/(?:landing|rankhra|arctara)/(content\.php) {
+        rewrite ^/(?:landing|rankhra|arctara)/(content\.php)$ /$1 last;
+    }
+
+    #
+    # 2) Vault‑static assets: css/js/images/pdf/mp4…
+    #
+    location ~* ^/(?:landing|rankhra|arctara)/.*\.(?:css|js|png|jpe?g|gif|svg|ico|pdf|mp4)$ {
+        try_files $uri =404;
+        access_log off;
+        expires max;
+    }
+
+    #
+    # 3) Everything under “/rankhra/…”, “/arctara/…” or “/landing/…”
+    #    that isn’t a static asset or markdown/json, go to index.php
+    #
+    location ~ ^/(?:landing|rankhra|arctara)/ {
+        # deny raw .md/.json
+        location ~ \.(md|json)$ { deny all; }
+
+        # rewrite all other requests into the Perlite front‑controller
+        rewrite ^/(landing|rankhra|arctara)/(.*)$ /index.php?path=$1/$2&$args last;
+    }
+
+    #
+    # 4) PHP‑FPM — only at root level
+    #    (from the default Perlite config) :contentReference[oaicite:0]{index=0}
+    #
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include fastcgi_params;
+        fastcgi_param REQUEST_URI   $request_uri;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO     $fastcgi_path_info;
+        fastcgi_index index.php;
+        fastcgi_pass perlite:9000;
+    }
+
+    #
+    # 5) Deny hidden files/folders
+    #
+    location ~ /\.ht           { deny all; }
+    location ~ /\.(git|github|obsidian|trash) { deny all; }
+    # allow only theme assets
+    location ~* ^/(.*)/\.obsidian/appearance\.json$ { allow all; }
+    location ~* ^/(.*)/\.obsidian/(.*)/theme\.css$  { allow all; }
+}

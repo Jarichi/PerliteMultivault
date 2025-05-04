@@ -110,21 +110,23 @@ function scrollToAnchor(aid) {
 function getContent(str, home = false, popHover = false, anchor = "") {
 
   // reset content if request is empty
-  if (str.length == 0) {
-    document.getElementById("mdContent").innerHTML = "";
-    document.getElementsByClassName("modal-body")[0].innerHTML = "";
-    return;
-  } else {
-
-    requestPath = uriPath + "content.php?mdfile=" + str;
-
-    if (home) {
-      if ($("div.no-mobile").css("display") == "none") {
-        return
-      }
+  const currentPath = window.location.pathname;
+  const currentVault = currentPath.split('/')[1];
+  const isVaultPath = ['rankhra', 'arctara'].includes(currentVault);
+  
+  // Build request path
+  let requestPath;
+  if (home) {
       requestPath = uriPath + "content.php?home";
-
-    }
+  } else {
+      // Ensure we're not duplicating the vault path
+      str = str.replace(new RegExp('^/?(' + currentVault + '/)?'), '');
+      requestPath = uriPath + "content.php?mdfile=" + encodeURIComponent(str);
+      
+      // For vault paths, prepend the vault name
+      if (isVaultPath && !str.startsWith(currentVault + '/')) {
+          str = currentVault + '/' + str;
+      }
 
     mdContent = $("#mdContent")[0]
 
@@ -229,8 +231,11 @@ function getContent(str, home = false, popHover = false, anchor = "") {
           // update the url
           if (home == false) {
 
-            target = slugURL(str)
-            window.history.pushState({}, "", location.protocol + '//' + location.host + uriPath + target + anchor);
+            let target = slugURL(str);
+                if (isVaultPath) {
+                    target = currentVault + '/' + target;
+                }
+            window.history.pushState({}, "", location.protocol + '//' + location.host + '/' + target + anchor);
 
           }
 

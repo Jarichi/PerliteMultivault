@@ -17,6 +17,8 @@ COPY ./.js/ ./.js/
 COPY ./.src/ ./.src/
 COPY ./vendor/ ./vendor/
 
+
 VOLUME /var/www/perlite/
+
 
 EXPOSE 9000

@@ -11,6 +11,13 @@ use Perlite\PerliteParsedown;
 require_once __DIR__ . '/vendor/autoload.php';
 include('helper.php');
 
+error_log("[Perlite Debug] Request URI: " . $_SERVER['REQUEST_URI']);
+error_log("[Perlite Debug] GET params: " . print_r($_GET, true));
+error_log("[Perlite Debug] Root dir: $rootDir");
+error_log("[Perlite Debug] Vault path: $vaultPath");
+
+
+
 // check get params
 if (isset($_GET['mdfile'])) {
 	$requestFile = $_GET['mdfile'];
@@ -369,23 +376,24 @@ function translateLink($pattern, $content, $path, $sameFolder)
 
 
 // read content from file
-function getContent($requestFile)
-{
-	global $avFiles;
-	global $path;
-	global $cleanFile;
-	global $rootDir;
-	$content = '';
-
-	// check if file is in array
-	if (in_array($requestFile, $avFiles, true)) {
-		$cleanFile = $requestFile;
-		$n = strrpos($requestFile, "/");
-		$path = substr($requestFile, 0, $n);
-		$content .= file_get_contents($rootDir . $requestFile . '.md', true);
-	}
-
-	return $content;
+function getContent($requestFile) {
+    global $avFiles, $path, $cleanFile, $rootDir, $vaultPath;
+    
+    // Remove any duplicate vault path if present
+    $requestFile = preg_replace('~^/?(' . $vaultPath . '/)~', '', $requestFile);
+    
+    // Check if file is in array
+    if (in_array('/' . $vaultPath . '/' . $requestFile, $avFiles, true)) {
+        $cleanFile = $requestFile;
+        $n = strrpos($requestFile, "/");
+        $path = substr($requestFile, 0, $n);
+        
+        $fullPath = $rootDir . '/' . $requestFile . '.md';
+        error_log("[Perlite Debug] Loading file from: $fullPath");
+        
+        return file_get_contents($fullPath, true);
+    }
+    return '';
 }
 
 ?>

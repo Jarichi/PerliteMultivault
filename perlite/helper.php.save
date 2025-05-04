@@ -8,45 +8,28 @@
 
 use Perlite\PerliteParsedown;
 
-// Load settings from settings.php if it exists
+// load settings from settings.php if it exists instead of using environment variables
 if (file_exists("settings.php")) {
-    include "settings.php";
+	include "settings.php";
 }
 
-// Default settings and variables
+//
+// default settings and variables
+//
+
+
 $avFiles = array();
 
-// Determine vault path from request
-$requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$vaultPath = 'landing'; // Default
+// replace with your Vault Folder
+if (empty($rootDir))
+	$rootDir = '
+$vaultName = $rootDir;
 
-//match against hardcoded vault paths
-if (preg_match('~^/(rankhra|arctara)(/|$)~', $requestPath, $matches)) {
-    $vaultPath = $matches[1];
-}
-
-// Set root directory based on vault path
-// Set absolute paths
-$rootDir = __DIR__ . '/' . $vaultPath;
-if (!is_dir($rootDir)) {
-    die("Vault directory not found: " . $rootDir);
-}
+//if (empty($uriPath)) $uriPath = empty(getenv('URI_PATH')) ? '/perlite/' : getenv('URI_PATH');
+if (empty($uriPath))
+	$uriPath = empty(getenv('URI_PATH')) ? '/' : getenv('URI_PATH');
 
 
-//set uri path to '/' if landing, otherwise set to <vaultPath>/
-$uriPath = ($vaultPath === 'landing') ? '/' : '/' . $vaultPath . '/';
-
-$basePath = '/';
-
-// Verify the vault directory exists
-if (!is_dir($rootDir)) {
-    header("HTTP/1.0 404 Not Found");
-    die("Vault directory not found: " . $rootDir);
-}
-
-
-
-//REST OF CONFIG
 
 // hide folders
 if (empty($hideFolders))
@@ -124,7 +107,7 @@ if (!isset($customSection))
 if ($siteLogo and empty($customSection)) {
 	$customSection = '<div class="sm-site-title">&nbsp;</div>
                                     <div class="custom-page">
-					                  <img class="custom-page-logo" src="' . $basePath . $siteLogo . '" alt="Custom Logo">
+					                  <img class="custom-page-logo" src="' . $uriPath . $siteLogo . '" alt="Custom Logo">
 					                  <div> &nbsp;</div>';
 
 	$customSection = $customSection . '
@@ -136,7 +119,7 @@ if ($siteLogo and empty($customSection)) {
 		$customSection = $customSection . '
 		                                  <li>
 		                                    <a href="' . $siteGithub . '">
-										      <img class="social-logo" src="' . $basePath . '.styles/github-color.svg" alt="Github Logo">
+										      <img class="social-logo" src="' . $uriPath . '.styles/github-color.svg" alt="Github Logo">
 										    </a>
 										  </li>';
 	}
@@ -145,7 +128,7 @@ if ($siteLogo and empty($customSection)) {
 		$customSection = $customSection . '
 		                                  <li>
 		                                    <a href="https://x.com/' . substr($siteTwitter, 1) . '">
-										      <img class="social-logo" src="' . $basePath . '.styles/x-color.svg" alt="X Logo">
+										      <img class="social-logo" src="' . $uriPath . '.styles/x-color.svg" alt="X Logo">
 										    </a>
 										  </li>';
 	}
@@ -153,7 +136,7 @@ if ($siteLogo and empty($customSection)) {
 	$customSection = $customSection . '
 						                  <li>
 	                                        <a href="' . $siteHomepage . '">
-									          <img class="social-logo" src="' . $basePath . '.styles/fontawesome-color.svg" alt="Homepage Logo">
+									          <img class="social-logo" src="' . $uriPath . '.styles/fontawesome-color.svg" alt="Homepage Logo">
 									        </a>
 									      </li>
 					                    </ul>';
@@ -207,7 +190,6 @@ function menu($dir, $folder = '')
 
 	global $hiddenFileAccess;
 	global $avFiles;
-	global $vaultPath, $uriPath;
 	$html = '';
 	// get all files from current dir
 	$files = glob($dir . '/*');
@@ -254,11 +236,10 @@ function menu($dir, $folder = '')
 	foreach ($files as $file) {
 		if (isMDFile($file)) {
 
-			$pathInfo = getFileINfos($file);
+			$path = getFileInfos($file)[0];
+			$mdFile = getFileInfos($file)[1];
 
-			$path = '/' . $vaultPath . '/' . $pathInfo[0];
-			$mdFile = $pathInfo[1];
-
+			$path = '/' . $path;
 			// push the the path to the array
 			array_push($avFiles, $path);
 
@@ -391,23 +372,25 @@ function isMDFile($file)
 	return false;
 }
 
-//REWORKED FUNCTION - MULTI-VAULT
+function getFileInfos($file)
+{
 
-function getFileInfos($file) {
-    global $rootDir, $vaultPath;
-    
-    // Remove the vault path prefix if present
-    $relativePath = str_replace($rootDir . '/', '', $file);
-    
-    $mdFile = mb_basename($file);
-    if (str_ends_with($mdFile, '.md')) {
-        $mdFile = substr($mdFile, 0, -3);
-    }
+	global $rootDir;
+	$mdFile = mb_basename($file);
+	if (strcmp(substr($mdFile, -3), ".md") === 0) {
+		$mdFile = substr($mdFile, 0, -3);
+	}
 
-    $dirPath = dirname($relativePath);
-    $pathClean = ($dirPath === '.') ? $mdFile : $dirPath . '/' . $mdFile;
-    
-    return [$pathClean, $mdFile];
+	$folderClean = str_replace('$' . $rootDir, '', '$' . pathinfo($file)["dirname"]);
+
+	$folderClean = substr($folderClean, 1);
+	if (!strcmp($folderClean, '')) {
+		$pathClean = $mdFile;
+	} else {
+		$pathClean = $folderClean . '/' . $mdFile;
+	}
+
+	return [$pathClean, $mdFile];
 }
 
 function mb_basename($path)

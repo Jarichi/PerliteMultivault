@@ -5,19 +5,15 @@ server {
     root /var/www/perlite;
     index index.php;
 
-    # Static assets - this is the critical addition
-    location ~* ^/(rankhra|arctara)?/(.+\.(css|js|jpg|jpeg|gif|png|ico|svg|woff2))$ {
-        try_files /$2 /$1/$2 =404;
-        expires 30d;
-        access_log off;
-    }
+    access_log /var/log/nginx/php-access.log;
+    error_log /var/log/nginx/php-error.log;
 
     # Main PHP handler
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    # Vault directories
+    # Vault directories (markdown files only)
     location ~ ^/(rankhra|arctara)/ {
         try_files $uri @perlite;
     }
@@ -33,8 +29,25 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
-
+    
     # Security rules
-    location ~ /\. { deny all; }
-    location ~ ~$ { deny all; }
+    location ~ /\.ht {
+        deny all;
+    }
+    
+    location ~* ^/(.*)/.obsidian/appearance.json$ {
+        allow all;
+    }
+    
+    location ~* ^/(.*)/.obsidian/(.*)/theme.css$ {
+        allow all;
+    }
+
+    location ~ \.(git|github|obsidian|trash) {
+        deny all;
+    }
+
+    location ~ \.(md|json)$ {
+        deny all;
+    }
 }
