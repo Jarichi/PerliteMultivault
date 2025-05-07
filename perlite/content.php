@@ -9,7 +9,7 @@
 use Perlite\PerliteParsedown;
 
 require_once __DIR__ . '/vendor/autoload.php';
-include('helper.php');
+include_once('helper.php');
 
 error_log("[Perlite Debug] Request URI: " . $_SERVER['REQUEST_URI']);
 error_log("[Perlite Debug] GET params: " . print_r($_GET, true));

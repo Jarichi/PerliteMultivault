@@ -16,27 +16,33 @@ if (file_exists("settings.php")) {
 // Default settings and variables
 $avFiles = array();
 
-// Determine vault path from request
+$availableVaults = array_filter(scandir(__DIR__), function ($dir) {
+	return is_dir(__DIR__ . '/' . $dir) && !in_array($dir, ['.', '..']);
+});
+
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$vaultPath = 'landing'; // Default
+if (preg_match('~^/(' . implode('|', $availableVaults) . ')(/|$)~', $requestPath, $matches)) {
+	$vaultPath = $matches[1];
+} else {
+	$vaultPath = 'landing'; // Default vault
+}
+
+$rootDir = __DIR__ . '/' . $vaultPath;
+if (!is_dir($rootDir)) {
+	header("HTTP/1.0 404 Not Found");
+	die("Vault directory not found: " . $rootDir);
+}
+
+$uriPath = '/' . trim($vaultPath, '/') . '/';
+$basePath = dirname($_SERVER['SCRIPT_NAME']) . '/';
+
+$hideFolders = getenv('HIDE_FOLDERS') ?: '';
 
 //match against hardcoded vault paths
-if (preg_match('~^/(rankhra|arctara)(/|$)~', $requestPath, $matches)) {
+if (preg_match('~^/(rankhra|arctara|landing)(/|$)~', $requestPath, $matches)) {
     $vaultPath = $matches[1];
 }
 
-// Set root directory based on vault path
-// Set absolute paths
-$rootDir = __DIR__ . '/' . $vaultPath;
-if (!is_dir($rootDir)) {
-    die("Vault directory not found: " . $rootDir);
-}
-
-
-//set uri path to '/' if landing, otherwise set to <vaultPath>/
-$uriPath = ($vaultPath === 'landing') ? '/' : '/' . $vaultPath . '/';
-
-$basePath = '/';
 
 // Verify the vault directory exists
 if (!is_dir($rootDir)) {

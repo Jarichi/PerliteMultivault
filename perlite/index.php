@@ -8,14 +8,14 @@
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
-require 'helper.php';
+require_once 'helper.php';
 
 // At the beginning of index.php
 //require_once('helper.php');
 
 // Get requested path
-$path = $_GET['path'] ?? '';
-$path = ltrim($path, '/');
+
+include_once 'content.php';
 
 // Rest of your existing index.php logic
 //style ref sheets are replaced from uriPath to basePath
