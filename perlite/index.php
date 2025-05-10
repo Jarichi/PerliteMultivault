@@ -5,23 +5,26 @@
 
 /*!
  * Version v1.6
+ * file seems to be used to index the menu and load formatting as html
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once 'helper.php';
+//require_once 'helper.php';
 
-// At the beginning of index.php
-//require_once('helper.php');
+include('helper.php');
 
-// Get requested path
 
-include_once 'content.php';
+// Get requested patH
+
+//include_once 'content.php';
 
 // Rest of your existing index.php logic
 //style ref sheets are replaced from uriPath to basePath
 
 
 $title = $siteTitle;
+error_log("[Perlite Debug - index.php] Calling index.php with title: $title");
+error_log("[Perlite Debug - index.php] About to call menu($rootDir) in index.php:26");
 $menu = menu($rootDir);
 $jsonGraphData = getfullGraph($rootDir);
 

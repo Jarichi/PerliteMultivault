@@ -1,9 +1,12 @@
 <?php
+//session_start();
 
 /*!
  * Perlite v1.6 (https://github.com/secure-77/Perlite)
  * Author: sec77 (https://secure77.de)
  * Licensed under MIT (https://github.com/secure-77/Perlite/blob/main/LICENSE)
+ * 
+ * file seems to be used to fetch and display actual content from md file
  */
 
 use Perlite\PerliteParsedown;
@@ -11,10 +14,29 @@ use Perlite\PerliteParsedown;
 require_once __DIR__ . '/vendor/autoload.php';
 include_once('helper.php');
 
-error_log("[Perlite Debug] Request URI: " . $_SERVER['REQUEST_URI']);
-error_log("[Perlite Debug] GET params: " . print_r($_GET, true));
-error_log("[Perlite Debug] Root dir: $rootDir");
-error_log("[Perlite Debug] Vault path: $vaultPath");
+error_log("[Perlite Debug - content.php] Request URI: " . $_SERVER['REQUEST_URI']);
+error_log("[Perlite Debug - content.php] GET params: " . print_r($_GET, true));
+
+$mdfile = isset($_GET['mdfile']) ? urldecode($_GET['mdfile']) : '';
+error_log("[Perlite Debug - content.php] Decoded mdfile: " . $mdfile);
+
+// Extract the vault path from `mdfile`
+if (preg_match('~^/(' . implode('|', $availableVaults) . ')(/|$)~', $mdfile, $matches)) {
+    $vaultPath = $matches[1];
+} else {
+    $vaultPath = 'landing'; // Default vault
+}
+error_log("[Perlite Debug - content.php] Vault path: " . $vaultPath);
+
+// Set the root directory based on the vault path
+$rootDir = __DIR__ . '/' . $vaultPath;
+if (!is_dir($rootDir)) {
+    header("HTTP/1.0 404 Not Found");
+    die("Vault directory not found: " . $rootDir);
+}
+error_log("[Perlite Debug - content.php] Root dir: " . $rootDir);
+
+error_log("[Perlite Debug - content-php] Vault path: $vaultPath");
 
 
 
@@ -79,13 +101,16 @@ function parseContent($requestFile)
 	$cleanFile = '';
 
 	// call menu again to refresh the array
+	error_log("[Perlite Debug - parseContent] About to call menu($rootDir) IN content.php:82");
 	menu($rootDir);
 	$path = '';
 
-
+	error_log("[Perlite Debug] Request file: " . $requestFile);
+	error_log("[Perlite Debug] At root dir: " . $rootDir . " and path: " . $path);
 	// get and parse the content, return if no content is there
 	$content = getContent($requestFile);
 	if ($content === '') {
+		error_log("[Perlite Debug] No content found for: " . $requestFile);
 		return;
 	}
 
@@ -380,9 +405,20 @@ function getContent($requestFile) {
     global $avFiles, $path, $cleanFile, $rootDir, $vaultPath;
     
     // Remove any duplicate vault path if present
+	$requestFile = urldecode($requestFile);
     $requestFile = preg_replace('~^/?(' . $vaultPath . '/)~', '', $requestFile);
+
+	// debug comments
+	error_log("[Perlite Debug - getContent] Request file: " . $requestFile);
+	error_log("[Perlite Debug - getContent] Vault path: " . $vaultPath);
+	error_log("[Perlite Debug - getContent] Root dir: " . $rootDir);
+	error_log("[Perlite Debug - getContent] Path: " . $path);
+	error_log("[Perlite Debug - getContent] Clean file: " . $cleanFile);
+	error_log("[Perlite Debug - getContent] Available files: " . print_r($avFiles, true));
+
     
     // Check if file is in array
+	error_log("[Perlite Debug] is /" . $vaultPath . '/' . $requestFile . " in available files: " . print_r($avFiles, true));
     if (in_array('/' . $vaultPath . '/' . $requestFile, $avFiles, true)) {
         $cleanFile = $requestFile;
         $n = strrpos($requestFile, "/");
@@ -393,6 +429,8 @@ function getContent($requestFile) {
         
         return file_get_contents($fullPath, true);
     }
+
+	error_log("[Perlite Debug] File not found in available files: " . $requestFile);
     return '';
 }
 

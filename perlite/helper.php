@@ -4,6 +4,8 @@
  * Perlite v1.6 (https://github.com/secure-77/Perlite)
  * Author: sec77 (https://secure77.de)
  * Licensed under MIT (https://github.com/secure-77/Perlite/blob/main/LICENSE)
+ * 
+ * file seems to contain helper functions used by content and index
  */
 
 use Perlite\PerliteParsedown;
@@ -20,12 +22,18 @@ $availableVaults = array_filter(scandir(__DIR__), function ($dir) {
 	return is_dir(__DIR__ . '/' . $dir) && !in_array($dir, ['.', '..']);
 });
 
+error_log("[Perlite Debug - availableVaults] availableVaults: " . print_r($availableVaults, true));
+
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+error_log("[Perlite Debug - requestPath] requestPath: " . $requestPath);
+
 if (preg_match('~^/(' . implode('|', $availableVaults) . ')(/|$)~', $requestPath, $matches)) {
 	$vaultPath = $matches[1];
 } else {
 	$vaultPath = 'landing'; // Default vault
 }
+error_log("[Perlite Debug - vaultPath] vaultPath: " . $vaultPath);
+
 
 $rootDir = __DIR__ . '/' . $vaultPath;
 if (!is_dir($rootDir)) {
@@ -34,7 +42,7 @@ if (!is_dir($rootDir)) {
 }
 
 $uriPath = '/' . trim($vaultPath, '/') . '/';
-$basePath = dirname($_SERVER['SCRIPT_NAME']) . '/';
+$basePath = '../';
 
 $hideFolders = getenv('HIDE_FOLDERS') ?: '';
 
@@ -260,13 +268,15 @@ function menu($dir, $folder = '')
 	foreach ($files as $file) {
 		if (isMDFile($file)) {
 
-			$pathInfo = getFileINfos($file);
+			$pathInfo = getFileInfos($file);
 
 			$path = '/' . $vaultPath . '/' . $pathInfo[0];
 			$mdFile = $pathInfo[1];
 
 			// push the the path to the array
 			array_push($avFiles, $path);
+			error_log("[Perlite Debug - menu] path: " . $path);
+			// print array 
 
 			// URL Encode the Path for the JS call
 			$pathClean = rawurlencode($path);
@@ -283,6 +293,8 @@ function menu($dir, $folder = '')
 			';
 		}
 	}
+	error_log("[Perlite Debug - menu] avFiles (populated): " . print_r($avFiles, true));
+
 
 	return $html;
 }
@@ -401,9 +413,13 @@ function isMDFile($file)
 
 function getFileInfos($file) {
     global $rootDir, $vaultPath;
+	error_log("[Perlite Debug - getFileInfos] getFileInfos: " . $file);
+	error_log("[Perlite Debug - getFileInfos] rootDir: " . $rootDir);
+	error_log("[Perlite Debug - getFileInfos] vaultPath: " . $vaultPath);
     
     // Remove the vault path prefix if present
     $relativePath = str_replace($rootDir . '/', '', $file);
+	error_log("[Perlite Debug - getFileInfos] relativePath: " . $relativePath);
     
     $mdFile = mb_basename($file);
     if (str_ends_with($mdFile, '.md')) {
@@ -413,6 +429,8 @@ function getFileInfos($file) {
     $dirPath = dirname($relativePath);
     $pathClean = ($dirPath === '.') ? $mdFile : $dirPath . '/' . $mdFile;
     
+	error_log("[Perlite Debug - getFileInfos] pathClean: " . $pathClean);
+	error_log("[Perlite Debug - getFileInfos] mdFile: " . $mdFile);
     return [$pathClean, $mdFile];
 }
 

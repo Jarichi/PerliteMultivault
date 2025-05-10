@@ -1,0 +1,399 @@
+[09-May-2025 14:48:35] NOTICE: fpm is running, pid 1
+[09-May-2025 14:48:35] NOTICE: ready to handle connections
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/.about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: README
+NOTICE: PHP message: [Perlite Debug - content.php] Request URI: /arctara/
+NOTICE: PHP message: [Perlite Debug - content.php] GET params: Array
+(
+    [path] => /arctara/
+)
+NOTICE: PHP message: [Perlite Debug - content.php] Root dir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - content-php] Vault path: arctara
+NOTICE: PHP message: [Perlite Debug - index.php] Calling index.php with title: Perlite
+NOTICE: PHP message: [Perlite Debug - index.php] About to call menu(/var/www/perlite/arctara) in index.php:26
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Empire of Hessonia/Cities/_Kaiserport.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Empire of Hessonia/Cities/_Kaiserport
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Kaiserport
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Federation of Velthandor/Cities/_Lasverdum.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Federation of Velthandor/Cities/_Lasverdum
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Lasverdum
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Kaido Republic/Cities/_Kyuko.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Kaido Republic/Cities/_Kyuko.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Kaido Republic/Cities/_Kyuko
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Kyuko
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Kaido Republic/Culture of Kaido.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Kaido Republic/Culture of Kaido.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Kaido Republic/Culture of Kaido
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: Culture of Kaido
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Kaido Republic/Culture of Kaido
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Kingdom of Veldrath/Cities/_Guandriel.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Kingdom of Veldrath/Cities/_Guandriel
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Guandriel
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Norwyn/Cities/_Drakehold.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Norwyn/Cities/_Drakehold.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Norwyn/Cities/_Drakehold
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Drakehold
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Norwyn/Cities/_Drakehold
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Sorwyn/Cities/_Elarhold.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Sorwyn/Cities/_Elarhold.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Sorwyn/Cities/_Elarhold
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Elarhold
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Sorwyn/Cities/_Elarhold
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Ultife/Cities/_Ultife.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Ultife/Cities/_Ultife.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Ultife/Cities/_Ultife
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Ultife
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Ultife/Cities/_Ultife
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Vargheim/Cities/_Vargheim.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Vargheim/Cities/_Vargheim.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Vargheim/Cities/_Vargheim
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _Vargheim
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Vargheim/Cities/_Vargheim
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country).md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Vargheim/Lore/Culture of Vargheim (Country).md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: Culture of Vargheim (Country)
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+)
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/arctara/Arctara/Westfold/Cities/_byrogryn.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: arctara
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: Arctara/Westfold/Cities/_byrogryn.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: Arctara/Westfold/Cities/_byrogryn
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: _byrogryn
+NOTICE: PHP message: [Perlite Debug - menu] path: /arctara/Arctara/Westfold/Cities/_byrogryn
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+    [12] => /arctara/Arctara/Westfold/Cities/_byrogryn
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+    [12] => /arctara/Arctara/Westfold/Cities/_byrogryn
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+    [12] => /arctara/Arctara/Westfold/Cities/_byrogryn
+)
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /arctara/Arctara/Empire of Hessonia/Cities/_Kaiserport
+    [3] => /arctara/Arctara/Federation of Velthandor/Cities/_Lasverdum
+    [4] => /arctara/Arctara/Kaido Republic/Cities/_Kyuko
+    [5] => /arctara/Arctara/Kaido Republic/Culture of Kaido
+    [6] => /arctara/Arctara/Kingdom of Veldrath/Cities/_Guandriel
+    [7] => /arctara/Arctara/Norwyn/Cities/_Drakehold
+    [8] => /arctara/Arctara/Sorwyn/Cities/_Elarhold
+    [9] => /arctara/Arctara/Ultife/Cities/_Ultife
+    [10] => /arctara/Arctara/Vargheim/Cities/_Vargheim
+    [11] => /arctara/Arctara/Vargheim/Lore/Culture of Vargheim (Country)
+    [12] => /arctara/Arctara/Westfold/Cities/_byrogryn
+)
+172.18.0.3 -  09/May/2025:14:48:42 +0000 "GET /index.php" 200
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/landing/.about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: .about
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/landing/README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: README
+NOTICE: PHP message: [Perlite Debug - content.php] Request URI: /content.php?mdfile=%252Farctara%252F
+NOTICE: PHP message: [Perlite Debug - content.php] GET params: Array
+(
+    [mdfile] => %2Farctara%2F
+)
+NOTICE: PHP message: [Perlite Debug - content.php] Root dir: /var/www/perlite/landing
+NOTICE: PHP message: [Perlite Debug - content-php] Vault path: landing
+NOTICE: PHP message: [Perlite Debug - parseContent] About to call menu(/var/www/perlite/landing) IN content.php:82
+NOTICE: PHP message: [Perlite Debug - getFileInfos] getFileInfos: /var/www/perlite/landing/README.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] rootDir: /var/www/perlite/landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] vaultPath: landing
+NOTICE: PHP message: [Perlite Debug - getFileInfos] relativePath: README.md
+NOTICE: PHP message: [Perlite Debug - getFileInfos] pathClean: README
+NOTICE: PHP message: [Perlite Debug - getFileInfos] mdFile: README
+NOTICE: PHP message: [Perlite Debug - menu] path: /landing/README
+NOTICE: PHP message: [Perlite Debug - menu] avFiles (populated): Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /landing/README
+)
+NOTICE: PHP message: [Perlite Debug] Request file: %2Farctara%2F
+NOTICE: PHP message: [Perlite Debug] At root dir: /var/www/perlite/landing and path: 
+NOTICE: PHP message: [Perlite Debug - getContent] Request file: /arctara/
+172.18.0.3 -  09/May/2025:14:48:43 +0000 "GET /content.php" 200
+NOTICE: PHP message: [Perlite Debug - getContent] Vault path: landing
+NOTICE: PHP message: [Perlite Debug - getContent] Root dir: /var/www/perlite/landing
+NOTICE: PHP message: [Perlite Debug - getContent] Path: 
+NOTICE: PHP message: [Perlite Debug - getContent] Clean file: 
+NOTICE: PHP message: [Perlite Debug - getContent] Available files: Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /landing/README
+)
+NOTICE: PHP message: [Perlite Debug] is /landing//arctara/ in available files: Array
+(
+    [0] => /.about
+    [1] => /README
+    [2] => /landing/README
+)
+NOTICE: PHP message: [Perlite Debug] File not found in available files: /arctara/
+NOTICE: PHP message: [Perlite Debug] No content found for: %2Farctara%2F
